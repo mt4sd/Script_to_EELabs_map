@@ -48,6 +48,25 @@ Purples.py calculates all the completely purple tiles to avoid having to ignore 
 
 --parallelization If you want to parallelize, enter the number of workers. 0 for not parallelization.
 
+**CREATE_ZOOM_9.PY DESCRIPTION**
+
+Create_zoom_9.py is used to generate images for zoom=9, which contains the highest level of detailed information.
+
+--out, --output Folder name and ubication where you want to save the images. Example: C:\Users\borja\Downloads\Folder REQUIRED INPUT
+
+--folder_data Folder where the CSV files of the tiles 16x16 are located Example: C:\Users\borja\Downloads\Folder REQUIRED INPUT
+
+**CREATE_ZOOM_LESS_9.PY DESCRIPTION**
+
+Create_zoom_less_9.py is used to calculate all zoom levels below 9, while zoom levels above 9 are obtained directly from the website.
+
+--mongoDB mongoDB url where the purples tiles were saved REQUIRED INPUT
+
+--folder_data Folder where the images files of the zoom=9 are locatedExample: C:\Users\borja\Downloads\Folder REQUIRED INPUT
+
+
+
+
 
 
 
