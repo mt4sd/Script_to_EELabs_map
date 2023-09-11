@@ -58,7 +58,7 @@ Create_zoom_9.py is used to generate images for zoom=9, which contains the highe
 
 **CREATE_ZOOM_LESS_9.PY DESCRIPTION**
 
-Create_zoom_less_9.py is used to calculate all zoom levels below 9, while zoom levels above 9 are obtained directly from the website.
+Create_zoom_less_9.py is used to calculate all zoom levels below 9, while zoom levels above 9 are obtained directly from the website. It need the purples tiles to ignore them.
 
 --mongoDB mongoDB url where the purples tiles were saved REQUIRED INPUT
 
