@@ -34,5 +34,21 @@ Inputs:
 
 --tile If you want to generate a single 16x16 tile.  Format example: [1,2]
 
---parallelization f you want to parallelize, enter the number of workers. 0 for not parallelization.
+--parallelization If you want to parallelize, enter the number of workers. 0 for not parallelization.
+
+**PURPLES.PY DESCRIPTION**
+
+Purples.py calculates all the completely purple tiles to avoid having to ignore them in later calculations and saves in MongoDB.
+
+--mongoDB mongoDB url where you want to save the data REQUIRED INPUT
+
+--folder_data Folder where the CSV files of the tiles 16x16 are located Example: C:\Users\borja\Downloads\Folder REQUIRED INPUT
+
+--tile If you want to generate the purples of one single 16x16 tile.  Format example: [1,2]
+
+--parallelization If you want to parallelize, enter the number of workers. 0 for not parallelization.
+
+
+
+
 
