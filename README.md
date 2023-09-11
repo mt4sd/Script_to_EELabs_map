@@ -20,3 +20,19 @@ Inputs:
 
 IMPORTANT: In case of interrupting the program execution, it can be relaunched to continue the download from where it left off. Check the downloaded files. Empty files have been downloaded incorrectly; they should be deleted and the script should be relaunched.
 
+**TILES_16X16.PY DESCRIPTION**
+
+Tiles_16x16.py is employed to change the projection from Equirectangular to Mercator and save the data in CSV format (required for image generation) and in MongoDB for use in the cursor value. CSV files corresponding to the 16x16 tiles of zoom 4. In MongoDB, they are grouped into collections based on the 16x16 tiles of zoom 4.
+
+Inputs:
+
+--out, --output Folder name and ubication where you want to save the data in CSV format. Example: C:\Users\borja\Downloads\Folder
+
+--mongoDB mongoDB url where you want to save the data
+
+--folder_data Folder where the H5 files of the downloaded data of the VIIRS are located. Example: C:\Users\borja\Downloads\Folder REQUIRED INPUT
+
+--tile If you want to generate a single 16x16 tile.  Format example: [1,2]
+
+--parallelization f you want to parallelize, enter the number of workers. 0 for not parallelization.
+
