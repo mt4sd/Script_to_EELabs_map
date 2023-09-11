@@ -1,2 +1,5 @@
-# Scripts_to_EELabs_map
-Scripts used to create the global light pollution map for EELabs from VIIRS data
+These scripts allow for the generation the EELabs map. First, the script '**Download_VIIRS_year.py**' is used to download VIIRS data. Subsequently, '**Tiles_16x16.py**' is employed to change the projection from Euirectangular to Mercator and save the data in CSV format (required for image generation) and in MongoDB for use in the cursor value. Next, you should run '**Purples.py**', which calculates all the completely purple tiles to avoid having to ignore them in later calculations. Then, '**Create_zoom_9.py**' is used to generate images for zoom=9, which contains the highest level of detailed information. Finally, '**Create_zoom_less_9.py**' is used to calculate all zoom levels below 9, while zoom levels above 9 are obtained directly from the website.
+
+Run order: **Download_VIIRS_year.py**, **Tiles_16x16.py**, **Purples.py**, **Create_zoom_9.py** and **Create_zoom_less_9.py**.
+
+These scripts use Windows for the folders and paths, except Download_VIIRS_year.py that use Windows or Linux. They need EELabs_map enviroment too.
