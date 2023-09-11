@@ -3,3 +3,20 @@ These scripts allow for the generation the EELabs map. First, the script '**Down
 Run order: **Download_VIIRS_year.py**, **Tiles_16x16.py**, **Purples.py**, **Create_zoom_9.py** and **Create_zoom_less_9.py**.
 
 These scripts use Windows for the folders and paths, except Download_VIIRS_year.py that use Windows or Linux. They need EELabs_map enviroment too.
+
+**DOWNLOAD_VIIRS_YEAR.PY DESCRIPTION**
+
+Download_VIIRS_year.py Is a script to download data from VIIRS satellite in a year, NASA product VNP46A4. IT IS NOT TO UPDATE DOWNLOADED DATA. 
+
+Inputs:
+
+--out, --output Folder name and ubication where you want to save the data. Example: C:\Users\borja\Downloads\Folder REQUIRED INPUT
+
+--year Year of the data to download REQUIRED INPUT
+
+--token NASA EARTHDATA token. Please visit the link https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/5000/VNP46A4/2021/001/. If necessary, register an account. It is important to have an active user account to proceed. Click on 'See wget Download command' to obtain the token. If there is not a token, download a file and click on it again. The token expires every 4-6 months. REQUIRED INPUT
+
+--OS Operating system where it is run: linux ot windows. REQUIRED INPUT
+
+IMPORTANT: In case of interrupting the program execution, it can be relaunched to continue the download from where it left off. Check the downloaded files. Empty files have been downloaded incorrectly; they should be deleted and the script should be relaunched.
+
