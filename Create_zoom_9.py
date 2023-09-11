@@ -13,7 +13,7 @@ from concurrent.futures import ThreadPoolExecutor
 #Input of the script
 parser = argparse.ArgumentParser()
 parser.add_argument('--folder_data',  type=str,required=True,  help='Folder where the CSV files of the tiles 16x16 are located')
-parser.add_argument('--output', '--out',  type=str,required=True,  help='Filename where you want to save the data')
+parser.add_argument('--output', '--out',  type=str,required=True,  help='Filename where you want to save the images')
 args = parser.parse_args()
 
 folder = args.folder_data
