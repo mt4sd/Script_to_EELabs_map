@@ -13,8 +13,8 @@ from concurrent.futures import ThreadPoolExecutor
 
 #Input of the script
 parser = argparse.ArgumentParser()
-parser.add_argument('--folder_data',  type=str,required=True,  help='Folder where the CSV files of the tiles 16x16 are located')
-parser.add_argument('--mongoDB',  type=str,  help='DB url where you want to save the data.')
+parser.add_argument('--folder_data',  type=str, required=True,  help='Folder where the CSV files of the tiles 16x16 are located')
+parser.add_argument('--mongoDB',  type=str, required=True,  help='DB url where you want to save the data.')
 parser.add_argument('--tile',  type=str,  help='Tile pisition. Format example: [1,2]')
 parser.add_argument('--parallelization',  type=str,  help='Number workers, 0 for not parallelization')
 
