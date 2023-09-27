@@ -39,7 +39,7 @@ def Get_purples(zoom):
         for ii in range(0,16):
             mongo_client=pymongo.MongoClient(mongoDB)
             query = {"zoom":zoom+1} 
-            mongo_colection=mongo_client['map_purple_tiles'][str(i)+'_'+str(ii)]
+            mongo_colection=mongo_client['map_purple_tiles']['t'+str(i)+'_'+str(ii)]
             purples=purples+list(mongo_colection.find(query,{"_id":0,"zoom":0}))
     return purples
 
@@ -143,16 +143,16 @@ except:
     hist=[]
 for i in range(0,16): #0,16
     for ii in range(0,16): #0,16
-        if not (str(i)+'_'+str(ii) in hist):
-            print('Trying: '+str(i)+'_'+str(ii))
+        if not ('t'+str(i)+'_'+str(ii) in hist):
+            print('Trying: '+'t'+str(i)+'_'+str(ii))
             Create_zoom_less_9([i,ii],folder)
             try:
-                Add(str(i)+'_'+str(ii))
+                Add('t'+str(i)+'_'+str(ii))
             except:
                 f = open (folder+'\\'+'hist2.txt','w')
-                f.write(str(i)+'_'+str(ii))
+                f.write('t'+str(i)+'_'+str(ii))
                 f.close()
-            print('Finished: '+str(i)+'_'+str(ii))      
+            print('Finished: '+'t'+str(i)+'_'+str(ii))      
 
 for zoom in np.array(range(0,4))[::-1]:
     Join_parallelization_2(int(zoom),folder)

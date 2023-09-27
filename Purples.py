@@ -62,19 +62,19 @@ def Find_purples(A,zoom,t1,t2):
         dic=Purples.to_dict(orient = 'records')
         if dic!=[]:
             mongo_client=pymongo.MongoClient(mongoDB)
-            mongo_colection=mongo_client['map_purple_tiles'][str(t1)+'_'+str(t2)]
+            mongo_colection=mongo_client['map_purple_tiles']['t'+str(t1)+'_'+str(t2)]
             mongo_colection.insert_many(dic)
             mongo_colection.create_index([("zoom", pymongo.DESCENDING),("h", pymongo.DESCENDING),("v", pymongo.DESCENDING)], unique=True)
         
 
 def Find_purples_all_zoom(t1,t2):
-    print('Trying:'+str(t1)+'_'+str(t2))
+    print('Trying: '+'t'+str(t1)+'_'+str(t2))
     TEXTO=folder+'\h'+Add_zero(t1)+'v'+Add_zero(t2)+'.csv'
     A=pd.read_csv(TEXTO,sep=';')
     mongo_client=pymongo.MongoClient(mongoDB)
     zooms=[]
     for iii in range(5,15):
-        mongo_find=mongo_client['map_purple_tiles'][str(t1)+'_'+str(t2)].find_one({"zoom":iii}, {"_id": 0,})
+        mongo_find=mongo_client['map_purple_tiles']['t'+str(t1)+'_'+str(t2)].find_one({"zoom":iii}, {"_id": 0,})
         if mongo_find:
             zooms=zooms+[mongo_find['zoom']]
     if zooms==[]:
@@ -83,8 +83,8 @@ def Find_purples_all_zoom(t1,t2):
         max_zoom=max(zooms)
     for iii in range(max_zoom+1,15):
         Find_purples(A,iii,t1,t2)
-    mongo_client['map_purple_tiles']['hist'].insert_one({'hist':str(t1)+'_'+str(t2)})
-    print("Mongo: "+str(t1)+'_'+str(t2))
+    mongo_client['map_purple_tiles']['hist'].insert_one({'hist':'t'+str(t1)+'_'+str(t2)})
+    print("Mongo: "+'t'+str(t1)+'_'+str(t2))
     
 
 def Find_purples_all_zoom_V(V):

@@ -119,7 +119,7 @@ def degree_decimal_to_degree_hexadecimal(degree_decimal): #Borja
             return (degree,minute,second) #Borja
 
 def create_tile(t1,t2,zoom,u):
-    print('Trying:'+str(t1)+'_'+str(t2))
+    print('Trying: '+'t'+str(t1)+'_'+str(t2))
     DF=pd.DataFrame()
     files=os.listdir(folder)
     files2=np.array([i.split('.')[2] for i in files])
@@ -193,14 +193,14 @@ def create_tile(t1,t2,zoom,u):
 
         dic=DF2.to_dict(orient = 'records')
         mongo_client=pymongo.MongoClient(mongoDB)
-        mongo_colection=mongo_client['map_values'][str(t1)+'_'+str(t2)]
+        mongo_colection=mongo_client['map_values']['t'+str(t1)+'_'+str(t2)]
         mongo_colection.drop() 
         try:
             mongo_colection.insert_many(dic)
             mongo_colection.create_index([("grad_lat", pymongo.DESCENDING),("grad_lon", pymongo.DESCENDING),("min_lat", pymongo.DESCENDING),("min_lon", pymongo.DESCENDING),("sec_lat", pymongo.DESCENDING),("sec_lon", pymongo.DESCENDING)], unique=True)
         except:
             mongo_colection.insert_one({})
-        print("Mongo: "+str(t1)+'_'+str(t2))
+        print("Mongo: "+'t'+str(t1)+'_'+str(t2))
 
 def create_tile_V(V):
     create_tile(V[0],V[1],V[2],V[3])
